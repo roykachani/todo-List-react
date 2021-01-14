@@ -6,7 +6,7 @@ const Approved = ({activities,deleteActivity,toggleTask,addActivity}) => {
         <>
             {activities.length === 0 && <h4>No hay tareas cumplidas</h4>}
             {activities.map((item) =>  ( 
-                item.state === true ? <ItemSuccess  key={item.id} {...item} deleteActivity={deleteActivity} toggleTask={toggleTask} /> : null
+                item.state === true ? <ItemSuccess  key={item.id} {...item} deleteActivity={deleteActivity} toggleTask={toggleTask} activities={activities} addActivity={addActivity} /> : null
             )) 
             }
         </>

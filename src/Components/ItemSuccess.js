@@ -1,24 +1,22 @@
-import {Alert, Button,Row,Col,FormCheck} from "react-bootstrap"
-
-import shortid from "shortid"
+import {Alert,Button,Row,Col,FormCheck} from "react-bootstrap"
 
 
-const ItemSuccess = ({id,task,state,deleteActivity,toggleTask,addActivity,activities}) =>{
-    
-
+const ItemSuccess = ({id,task,state,deleteActivity,toggleTask}) =>{
+   
     const deleteTask = (e) =>{
         const {id}= e.target
         deleteActivity(id)
         
         
     }
-    const completeTask = (e) =>{
-        const {id}= e.target
-        
-        toggleTask(id)
     
+
+    const unCompleteTask = (e) =>{
+        const {id}= e.target
+        toggleTask(id)
+     
     }
-    console.log(state)
+    
  
     
     return(
@@ -31,7 +29,7 @@ const ItemSuccess = ({id,task,state,deleteActivity,toggleTask,addActivity,activi
             <Col md={3} className="">
             
             <Button variant="danger" id={id} onClick={deleteTask}>borrar</Button>
-            <FormCheck id={shortid()} onChange={completeTask}></FormCheck>
+            <FormCheck id={id} onChange={unCompleteTask}></FormCheck>
             </Col>
             </Row>
             

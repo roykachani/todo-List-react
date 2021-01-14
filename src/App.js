@@ -9,21 +9,20 @@ import './App.css';
 function App() {
   //estado para pendientes
   const [activities,setActivities] = useState([])
-  //estado para completados
-  // const [stateActivities, setStateActivities] = useState([])
   
   const addActivity = (activity) => {
     setActivities([...activities, activity])
     
   }
+  //funcion para eliminar tarea
   const deleteActivity = (id) => {
-    setActivities(activities.filter((activity) => activity.id !== id && activity.state === true))
-    setActivities(activities.filter((activity) => activity.id !== id && activity.state === false))
+    setActivities(activities.filter((activity) => activity.id !== id))
+    
     
     
     console.log("borrar")
   }
-  
+  //funcion modificadora de estado
   const toggleTask = (id) => {
     
     setActivities(activities.map((activity) => (activity.id === id ? { ...activity, state: !activity.state } : activity)))
@@ -43,7 +42,7 @@ function App() {
             <List activities={activities} deleteActivity={deleteActivity} toggleTask={toggleTask}/>
         </Col>
         <Col md={4}>
-            <Approved activities={activities} deleteActivity={deleteActivity} />
+            <Approved activities={activities} deleteActivity={deleteActivity} toggleTask={toggleTask} addActivity ={addActivity} />
         </Col>
       </Row>
     </Container>
