@@ -7,7 +7,7 @@ const Create = ({addActivity}) =>{
         task:"",
         state:false,
     }
-// evento que guarda valores de estado 
+// funcion que guarda valores de estado 
     const handleWork = (e) => {
         const {name,value} = e.target;
         setWork({
@@ -15,7 +15,7 @@ const Create = ({addActivity}) =>{
             [name] : value,
         })
     }
-//evento que crea objeto pisando valores anteriores y limpia input
+//funcion que crea objeto pisando valores anteriores y limpia input
     const handleSubmit = (e) => {
         e.preventDefault()
         if(work.task.trim() === "") return;

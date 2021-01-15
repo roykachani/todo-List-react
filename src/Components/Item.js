@@ -1,6 +1,6 @@
 import {Alert, Button,Row,Col,FormCheck} from "react-bootstrap"
 
-const Item = ({id,task,state,deleteActivity,toggleTask}) =>{
+const Item = ({id,task,state,deleteActivity,toggleTask,selectEditTask}) =>{
     
     const deleteTask = (e) =>{
         const {id}= e.target
@@ -9,6 +9,12 @@ const Item = ({id,task,state,deleteActivity,toggleTask}) =>{
     const completeTask = (e) =>{
         const {id}= e.target
         toggleTask(id)
+    }
+
+    const handleEdit = (e) =>{
+        const {id}= e.target
+        selectEditTask(id)
+
     }
     
 
@@ -23,6 +29,7 @@ const Item = ({id,task,state,deleteActivity,toggleTask}) =>{
             
             <Button variant="danger" id={id} onClick={deleteTask}>borrar</Button>
             <FormCheck id={id} onChange={completeTask}></FormCheck>
+            <Button variant="warning" id={id} onClick={handleEdit}>📝</Button>
             </Col>
             </Row>
             
