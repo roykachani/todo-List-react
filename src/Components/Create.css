@@ -1,10 +1,25 @@
 .create-title {
   color: white;
-  margin-bottom: ;
 }
 
 .create-text {
   margin-top: 10px;
   padding: 5px 15px;
   color: white;
+}
+
+.delete {
+  color: #dc3545;
+}
+
+.check {
+  color: #28a745;
+}
+
+.edit {
+  color: #ffc107;
+}
+
+.unCheck {
+  color: #007bff;
 }

@@ -41,7 +41,7 @@ const EditTask = ({saveTask,showModal,showEditTask,setEditedTask}) => {
 
                 <Modal.Body>
                     <Form.Group>
-                        <input type="text" name="task"  placeholder="Edita tu tarea" onChange={handleInput}/>
+                        <input type="text" name="task"  placeholder="Edita tu tarea" onChange={handleInput} autoFocus/>
                     </Form.Group>
                 </Modal.Body>
 
