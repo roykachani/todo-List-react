@@ -6,7 +6,7 @@ const List = ({activities,deleteActivity,toggleTask,addActivity,selectEditTask})
 
     return(
         <>
-            {activities.length === 0 && <h4>No hay tareas</h4>}
+            <h4>Tareas pendientes</h4>
             {activities.map((item) => (
               
               item.state === false ?<Item  key={item.id} {...item} 

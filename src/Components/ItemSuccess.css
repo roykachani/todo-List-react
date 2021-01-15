@@ -1,0 +1,21 @@
+.alertItem {
+  height: 70px;
+}
+
+.alertItem i {
+  font-size: 12px;
+}
+
+.tarea {
+  margin: 0;
+}
+.tarea p {
+  margin: 0;
+}
+
+.butons Button {
+  width: 30px;
+  height: 32px;
+  padding: 0;
+  margin: 2px;
+}

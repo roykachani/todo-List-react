@@ -32,9 +32,9 @@ const EditTask = ({saveTask,showModal,showEditTask,setEditedTask}) => {
     
     
     return (
-        <Row>
+        <Row className="modal-container">
             {showEditTask &&
-            <Modal.Dialog>
+            <Modal.Dialog >
                     <Modal.Header closeButton onClick={handleClose}>
                     <Modal.Title>Edita tu tarea</Modal.Title>
                 </Modal.Header>

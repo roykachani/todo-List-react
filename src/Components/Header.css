@@ -1,0 +1,16 @@
+.container-Header {
+  margin: 0;
+  height: 12vh;
+  background-image: url(./../img/tropical.jpg);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header h1 {
+  font-size: 3em;
+  color: black;
+}

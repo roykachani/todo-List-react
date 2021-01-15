@@ -3,6 +3,7 @@ import {Container, Row, Col} from "react-bootstrap";
 import Create from "./Components/Create";
 import List from "./Components/List";
 import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 import Approved from "./Components/Approved"
 import EditTask from "./Components/EditTask"
 import './App.css';
@@ -13,7 +14,7 @@ function App() {
   const [saveTask,setSaveTask] = useState([])
   const [showEditTask, setShowEditTask] = useState(false);
 
-
+  //funcion que guarda las nuevas tareas
   const addActivity = (activity) => {
     setActivities([...activities, activity])
     
@@ -23,13 +24,13 @@ function App() {
     setActivities(activities.filter((activity) => activity.id !== id))
    
   }
-  //funcion modificadora de estado
+  //funcion modificadora de estado a completado/pendiente
   const toggleTask = (id) => {
     
     setActivities(activities.map((activity) => (activity.id === id ? { ...activity, state: !activity.state } : activity)))
     
   }
-  console.log([activities])
+  
   //funcion activadora de modal
   const showModal = () =>{
     setShowEditTask(!showEditTask)
@@ -41,7 +42,7 @@ function App() {
     setSaveTask(editTask[0])
     showModal()
   }
-
+  //funcion que guarda la tarea editada
   const setEditedTask = (newActivity) => {
     const newTask = activities.map((task) => (task.id === newActivity.id ? {...task, task: newActivity.task} : task))
     setActivities(newTask)
@@ -49,13 +50,16 @@ function App() {
 
 
   return (
-    <Container fluid="md">
-      <Header title="To Do APP" />
-      <Row>
-        <Col md={2}>
+    <>
+    <Container className="container-app" fluid="md">
+      <Header title="To Do APP " />
+      <Row className="container-create">
+        <Col className="create-col" md={2}>
             <Create addActivity ={addActivity}/>
         </Col>
-        <Col me={6}>
+        <Col className="container-list ">
+          <Row className="list-box justify-content-md-center">
+        <Col className="unComplete-box" md={5} >
             <List activities={activities}
              deleteActivity={deleteActivity} 
              toggleTask={toggleTask}
@@ -63,21 +67,27 @@ function App() {
              selectEditTask={selectEditTask}
              />
         </Col>
-        <Col md={4}>
+        <Col className="complete-box" md={5}>
             <Approved activities={activities} 
             deleteActivity={deleteActivity} 
             toggleTask={toggleTask}
              addActivity ={addActivity}
              />
         </Col>
+
+          </Row>
+        </Col>
       </Row>
-      <EditTask selectEditTask={selectEditTask} 
+      <Footer/>
+    </Container>
+        {/* modal */}
+      {showEditTask && <EditTask selectEditTask={selectEditTask} 
       setEditedTask={setEditedTask} 
       saveTask={saveTask} 
       showModal={showModal} 
       showEditTask={showEditTask} 
-      />
-    </Container>
+      />}
+      </>
     );
 }
 

@@ -1,4 +1,5 @@
-import {Alert,Button,Row,Col,FormCheck} from "react-bootstrap"
+import {Alert,Button,Row,Col} from "react-bootstrap"
+import "./ItemSuccess.css"
 
 
 const ItemSuccess = ({id,task,state,deleteActivity,toggleTask}) =>{
@@ -20,16 +21,16 @@ const ItemSuccess = ({id,task,state,deleteActivity,toggleTask}) =>{
  
     
     return(
-        <Alert key={id} variant="success">
+        <Alert className="alertItem" key={id} variant="success">
             <Row className=" m-0 p-0">
-            <Col md={9} className="">
+            <Col md={9} className="tarea">
             <p>{task}</p>
             
             </Col>
-            <Col md={3} className="">
+            <Col md={3} className="butons">
             
-            <Button variant="danger" id={id} onClick={deleteTask}>borrar</Button>
-            <FormCheck id={id} onChange={unCompleteTask}></FormCheck>
+                <Button variant="danger" id={id} onClick={deleteTask}><i id={id} onClick={deleteTask} className="fas fa-trash"></i></Button>
+                <Button id={id} onClick={unCompleteTask}><i id={id} onClick={unCompleteTask} className="fas fa-tasks"></i></Button>
             </Col>
             </Row>
             

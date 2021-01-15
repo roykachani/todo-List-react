@@ -1,10 +1,11 @@
 import {Row, Col} from "react-bootstrap"
+import "./Header.css"
 
 const Header = ({title}) => {
     return(
-        <Row>
-            <Col>
-                <h1 className="text-center">{title}</h1>
+        <Row className="container-Header">
+            <Col className="header">
+                <h1>{title}<i className="fas fa-thumbtack"></i></h1>
             </Col>
         </Row>
         
